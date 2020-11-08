@@ -3730,8 +3730,8 @@ garrison = { country = ROM province = 302 size = 2 }
 }
 }
 
-name = "The Galician Bessarabia"
-desc = "In the Galician Bessarabia, lives much Romanians. For the glory of our people, the leader Codreanu opened a question with the ministers about invade Galician Bessarabia, but this local don't have good resources or IC. Caution, the Austrians can declare war on us!"
+name = "The Bukovina Question"
+desc = "In the Bukovina, lives much Romanians. For the glory of our people, the leader Codreanu opened a question with the ministers about invade Bukovina, but this local don't have good resources or IC. Caution, the Austrians can declare war on us!"
 picture = "ReoocuOlt"
 decision_picture = "decision_oltenia"
 
@@ -3755,8 +3755,8 @@ id = 90096
 random = no
 country = GLD
 
-name = "Romania claims Bessarabia"
-desc = "The Romanians claim our land of Bessarabia! We can defend our land, or secede the provinces of Suceava and Cernauti for the Iron Guard!"
+name = "Romania claims Bukovina"
+desc = "The Romanians claim our land of Bukovina! We can defend our land, or secede the provinces of Suceava and Cernauti for the Iron Guard!"
 style = 2
 
 action_a = {
@@ -3781,8 +3781,8 @@ id = 90097
 random = no
 country = HUN
 
-name = "Romania claims Bessarabia"
-desc = "The Romanians claim the land of Galician Bessarabia! We can defend our friends, or abandon then!"
+name = "Romania claims Bukovina"
+desc = "The Romanians claim the land of Bukovina! We can defend our friends, or abandon then!"
 style = 2
 
 action_a = {
@@ -3804,8 +3804,8 @@ id = 90098
 random = no
 country = AUS
 
-name = "Romania claims Bessarabia"
-desc = "The Romanians claim the land of Galician Bessarabia! Our friends call for help!"
+name = "Romania claims Bukovina"
+desc = "The Romanians claim the land of Bukovina! Our friends call for help!"
 style = 2
 
 action_a = {
@@ -3827,8 +3827,8 @@ id = 90099
 random = no
 country = ROM
 
-name = "Romania claims Bessarabia"
-desc = "The Galicia-Lodomeria seceded for us the Bessarabia! Hurra!!!"
+name = "Romania claims Bukovina"
+desc = "The Galicia-Lodomeria seceded for us the Bukovina region! Hurra!!!"
 style = 2
 
 action_a = {
@@ -3845,7 +3845,7 @@ random = no
 country = GLD
 
 name = "Our friends abandoned us..."
-desc = "Now, we have to secede the Bessarabia, ah..."
+desc = "Now, we have to secede the Bukovina, ah..."
 style = 2
 
 action_a = {
@@ -3855,7 +3855,7 @@ command = { type = secedeprovince which = ROM value = 301 }
 command = { type = dissent value = 5 }
 
 action_b = {
-name = "Ok... IT'S WAR!"
+name = "Never!"
 command = { type = war which = ROM }
 command = { type = dissent value = -5 }
 }
