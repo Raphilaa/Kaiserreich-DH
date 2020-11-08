@@ -422,7 +422,7 @@ action_b = {
 ai_chance = 0
 name = "Keep the island. We need it"
 command = { type = revolt which = 1 } #Reykjavik
-command = { type = revolt which = 3 } #Höfn
+command = { type = revolt which = 3 } #HÃ¶fn
 command = { type = dissent value = 1 }
 }
 }
@@ -1498,4 +1498,187 @@ command = { trigger = { control = { province = 216 data = GER  } } type = remove
 command = { trigger = { control = { province = 150 data = GER  } } type = removeclaim which = 150 }
 }
 
+}
+
+event = {
+id = 95105
+picture = "diplomatic_campaign"
+style = 2
+country = DEN
+
+date = { day = 16 month = december year = 1936 }
+offset = 3
+deathdate = { day = 29 month = december year = 1960 }
+
+name = "Denmark comercial relations"
+desc = "After Black Monday, the Danish government needs new commercial allies in order to revive its economy. To this end, the Danish government has decided to hold a referendum among governors on which nation to look for."
+
+action_a = {
+name = "Canada and the Entente"
+ai_chance = 35
+command = { type = dissent value = 5 }
+command = { type = trigger which = 95106 }
+}
+action_b = {
+name = "Germany"
+ai_chance = 35
+command = { type = dissent value = 3 }
+command = { type = trigger which = 95117 }
+}
+action_c = {
+name = "Sweden"
+ai_chance = 30
+command = { type = dissent value = -2 }
+command = { type = trigger which = 95115 }
+}
+}
+
+
+event = {
+id = 95106
+picture = "diplomatic_campaign"
+style = 2
+country = CAN
+
+date = { day = 3 month = january year = 1936 }
+offset = 3
+deathdate = { day = 29 month = december year = 1960 }
+
+name = "Denmark comercial relations"
+desc = "The Denmark called us for sign a comercial treaty to restore your economy. We had to help then, and get a new ally. Or simple, abandon then to die."
+
+action_a = {
+name = "Help our Friends!"
+ai_chance = 60
+command = { type = trigger which = 95109 }
+}
+action_b = {
+name = "Abandon then!"
+ai_chance = 40
+command = { type = dissent value = -1 } #This is a price to abandon your friend, coward.
+}
+}
+event = {
+id = 95117
+picture = "diplomatic_campaign"
+style = 2
+country = GER
+
+date = { day = 3 month = january year = 1936 }
+offset = 3
+deathdate = { day = 29 month = december year = 1960 }
+
+name = "Denmark comercial relations"
+desc = "The Denmark called us for sign a comercial treaty to restore your economy. We had to help then, and get a new ally. Or simple, abandon then to die."
+
+action_a = {
+name = "Help our Friends!"
+ai_chance = 60
+command = { type = trigger which = 95110 }
+}
+action_b = {
+name = "Abandon then!"
+ai_chance = 40
+command = { type = dissent value = -1 } #This is a price to abandon your friend, coward.
+}
+}
+
+event = {
+id = 95115
+picture = "diplomatic_campaign"
+style = 2
+country = SWE
+
+
+name = "Denmark comercial relations"
+desc = "The Denmark called us for sign a comercial treaty to restore your economy. We had to help then, and get a new ally. Or simple, abandon then to die."
+
+action_a = {
+name = "Help our brothers, and call then for alliance!"
+ai_chance = 20
+command = { type = trigger which = 95112 }
+}
+action_b = {
+name = "Help our brothers!"
+ai_chance = 50
+command = { type = trigger which = 95113 }
+}
+action_c = {
+name = "Abandon then!"
+ai_chance = 30
+command = { type = dissent value = -1 } #This is a price to abandon your friend, coward.
+}
+}
+
+event = {
+id = 95120
+picture = "diplomatic_campaign"
+style = 2
+country = DEN
+
+
+name = "Denmark comercial relations"
+desc = "The Canada accepted our treaty, now we have to accept your terms!"
+
+action_a = {
+name = "Great!"
+ai_chance = 100
+command = { type = alliance which = CAN }
+command = { type = peacetime_ic_mod value = 10 }
+}
+}
+
+event = {
+id = 95121
+picture = "diplomatic_campaign"
+style = 2
+country = DEN
+
+
+name = "Denmark comercial relations"
+desc = "The Germans accepted our treaty, now we have to accept your terms!"
+
+action_a = {
+name = "Great!"
+ai_chance = 100
+command = { type = alliance which = GER }
+command = { type = peacetime_ic_mod value = 7 }
+}
+}
+
+
+event = {
+id = 95113
+picture = "diplomatic_campaign"
+style = 2
+country = DEN
+
+
+name = "Denmark comercial relations"
+desc = "The Sweden accepted our treaty, now we have to accept your terms!"
+
+action_a = {
+name = "Great!"
+ai_chance = 100
+command = { type = set_relation which = SWE value = 175  }
+command = { type = peacetime_ic_mod value = 15 }
+}
+}
+
+event = {
+id = 95112
+picture = "diplomatic_campaign"
+style = 2
+country = DEN
+
+
+name = "Denmark comercial relations"
+desc = "The Sweden accepted our treaty, now we have to accept your terms!"
+
+action_a = {
+name = "Great!"
+ai_chance = 100
+command = { type = alliance which = SWE  }
+command = { type = peacetime_ic_mod value = 15 }
+}
 }
