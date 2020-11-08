@@ -109,8 +109,8 @@ style = 2
 action_a = {
 name = "Guard the mountain passes"
 command = { type = relation which = ROM value = -15 }
-command = { type = construct which = land_fort where = 291 value = 1 } # Timisoara/Temesvár
-command = { type = construct which = land_fort where = 293 value = 1 } # Sibiu/Mármarossziget
+command = { type = construct which = land_fort where = 291 value = 1 } # Timisoara/TemesvÃ¡r
+command = { type = construct which = land_fort where = 293 value = 1 } # Sibiu/MÃ¡rmarossziget
 }
 }
 
@@ -1222,7 +1222,7 @@ name = "Great!"
 command = { type = money value = 100 }
 command = { type = manpowerpool value = 10 }
 command = { type = supplies value = 2500 }
-command = { type = add_division which = "Brigada Sârba" value = infantry when = 8 }
+command = { type = add_division which = "Brigada SÃ¢rba" value = infantry when = 8 }
 command = { type = add_division which = "Brigada Banateana" value = infantry when = 8 }
 }
 }
@@ -1243,7 +1243,7 @@ name = "Great!"
 command = { type = money value = -100 }
 command = { type = manpowerpool value = 10 }
 command = { type = supplies value = 2500 }
-command = { type = add_division which = "Brigada Sârba" value = infantry when = 8 }
+command = { type = add_division which = "Brigada SÃ¢rba" value = infantry when = 8 }
 command = { type = add_division which = "Brigada din Timoc" value = infantry when = 8 }
 }
 }
@@ -2208,7 +2208,7 @@ alliance = { country = UKR country = URU }
 }
 
 name = "Spread the revolution into Romania?"
-desc = "The Kingdom of Romania has succesfully emerged from the civil war with the Iron Guard as the victor. Currently this newborn state is very vulnerable and it wouldn´t be hard to bring it into our sphere of influence using widespread discontent in the rural areas of Romania."
+desc = "The Kingdom of Romania has succesfully emerged from the civil war with the Iron Guard as the victor. Currently this newborn state is very vulnerable and it wouldnÂ´t be hard to bring it into our sphere of influence using widespread discontent in the rural areas of Romania."
 picture = "spread_revolution"
 decision_picture = "decision_spread_revolution"
 
@@ -3687,5 +3687,176 @@ action_b = {
 name = "Cancel the peace treaty, the turning point is near!"
 ai_chance = 10
 command = { }
+}
+}
+
+event = {
+id = 90095
+random = no
+country = ROM
+style = 2
+
+decision = {
+NOT = {
+war = { country = ROM country = GLD }
+alliance = { country = ROM country = GLD }
+OR = {
+event = 90000
+}
+}
+
+decision_trigger = {
+OR = {
+garrison = { country = ROM province = 299 size = 2 }
+garrison = { country = ROM province = 297 size = 2 }
+garrison = { country = ROM province = 302 size = 2 }
+}
+}
+trigger = {
+NOT = {
+war = { country = ROM country = GLD }
+alliance = { country = ROM country = GLD }
+}
+OR = {
+AND = { ai = yes random = 3 }
+AND = {
+ai = no
+OR = {
+garrison = { country = ROM province = 299 size = 2 }
+garrison = { country = ROM province = 297 size = 2 }
+garrison = { country = ROM province = 302 size = 2 }
+}
+}
+}
+}
+
+name = "The Galician Bessarabia"
+desc = "In the Galician Bessarabia, lives much Romanians. For the glory of our people, the leader Codreanu opened a question with the ministers about invade Galician Bessarabia, but this local don't have good resources or IC. Caution, the Austrians can declare war on us!"
+picture = "ReoocuOlt"
+decision_picture = "decision_oltenia"
+
+date = { day = 0 month = march year = 1937 }
+offset = 2
+deathdate = { day = 29 month = december year = 1963 }
+
+action = {
+name = "All of Bessarabia is Romania!"
+command = { type = relation which = HUN value = -50 }
+command = { type = relation which = GLD value = -100 }
+command = { type = relation which = GER value = -25 }
+command = { type = relation which = AUS value = -40 }
+command = { type = belligerence which = ROM value = 10 }
+command = { type = trigger which = 90096 } # Romania claims Bessarabia - GLD
+}
+}
+
+event = {
+id = 90096
+random = no
+country = GLD
+
+name = "Romania claims Bessarabia"
+desc = "The Romanians claim our land of Bessarabia! We can defend our land, or secede the provinces of Suceava and Cernauti for the Iron Guard!"
+style = 2
+
+action_a = {
+name = "We can't do anything..."
+ai_chance = 50
+command = { type = secedeprovince which = ROM value = 300 }
+command = { type = secedeprovince which = ROM value = 301 }
+command = { type = dissent value = 5 }
+command = { type = trigger which = 90099 }
+}
+
+action_b = {
+name = "Call the Austria and Hungary!"
+ai_chance = 50
+command = { type = trigger which = 90097 }
+command = { type = trigger which = 90098 }
+}
+}
+
+event = {
+id = 90097
+random = no
+country = HUN
+
+name = "Romania claims Bessarabia"
+desc = "The Romanians claim the land of Galician Bessarabia! We can defend our friends, or abandon then!"
+style = 2
+
+action_a = {
+name = "We can't do anything..."
+ai_chance = 50
+command = { type = dissent value = 5 }
+command = { type = trigger which = 90100 }
+}
+
+action_b = {
+name = "Protect Galicia!"
+ai_chance = 50
+command = { type = war which = ROM }
+}
+}
+
+event = {
+id = 90098
+random = no
+country = AUS
+
+name = "Romania claims Bessarabia"
+desc = "The Romanians claim the land of Galician Bessarabia! Our friends call for help!"
+style = 2
+
+action_a = {
+name = "We can't do anything..."
+ai_chance = 50
+command = { type = dissent value = 5 }
+command = { type = trigger which = 90100 }
+}
+
+action_b = {
+name = "Show the Austrian might!"
+ai_chance = 50
+command = { type = war which = ROM }
+}
+}
+
+event = {
+id = 90099
+random = no
+country = ROM
+
+name = "Romania claims Bessarabia"
+desc = "The Galicia-Lodomeria seceded for us the Bessarabia! Hurra!!!"
+style = 2
+
+action_a = {
+name = "Excellent!"
+command = { type = dissent value = -10 }
+}
+
+}
+}
+
+event = {
+id = 90100
+random = no
+country = GLD
+
+name = "Our friends abandoned us..."
+desc = "Now, we have to secede the Bessarabia, ah..."
+style = 2
+
+action_a = {
+name = "Secede this thing!"
+command = { type = secedeprovince which = ROM value = 300 }
+command = { type = secedeprovince which = ROM value = 301 }
+command = { type = dissent value = 5 }
+
+action_b = {
+name = "Ok... IT'S WAR!"
+command = { type = war which = ROM }
+command = { type = dissent value = -5 }
 }
 }
